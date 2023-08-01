@@ -70,11 +70,12 @@ class SkillsCell: UICollectionViewCell {
         case .editing:
             skillNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
             skillNameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-//            skillNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
+            skillNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
+            skillNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -48).isActive = true
 
             deleteImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
             deleteImageView.leadingAnchor.constraint(equalTo: skillNameLabel.trailingAnchor, constant: 10).isActive = true
-            deleteImageView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+            deleteImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24).isActive = true
             deleteImageView.heightAnchor.constraint(equalToConstant: 14).isActive = true
             deleteImageView.widthAnchor.constraint(equalToConstant: 14).isActive = true
 

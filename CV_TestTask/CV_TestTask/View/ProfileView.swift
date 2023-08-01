@@ -33,7 +33,6 @@ class ProfileView: UIView {
         collectionView.register(viewWithClass: SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader)
         collectionView.backgroundColor = .white
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-
         return collectionView
     }()
 

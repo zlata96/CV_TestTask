@@ -61,7 +61,7 @@ class LocationView: UIView {
         locationImageView.trailingAnchor.constraint(equalTo: cityNameLabel.leadingAnchor, constant: -4).isActive = true
         locationImageView.heightAnchor.constraint(equalToConstant: 16).isActive = true
         locationImageView.widthAnchor.constraint(equalToConstant: 16).isActive = true
-        locationImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        locationImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
 }
 

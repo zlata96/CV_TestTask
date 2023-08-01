@@ -50,6 +50,7 @@ class MainInformationView: UIView {
         backgroundColor = .mainBackground
         addSubviews()
         makeConstraints()
+        locationView.translatesAutoresizingMaskIntoConstraints = false
     }
 
     private func addSubviews() {
