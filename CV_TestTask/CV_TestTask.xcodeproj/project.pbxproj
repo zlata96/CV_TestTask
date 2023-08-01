@@ -8,20 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		CEBF696E2A78EC74000CB367 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF696D2A78EC74000CB367 /* AppDelegate.swift */; };
-		CEBF69722A78EC74000CB367 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF69712A78EC74000CB367 /* ViewController.swift */; };
-		CEBF69752A78EC74000CB367 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEBF69732A78EC74000CB367 /* Main.storyboard */; };
-		CEBF69772A78EC7A000CB367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEBF69762A78EC7A000CB367 /* Assets.xcassets */; };
+		CEBF69722A78EC74000CB367 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF69712A78EC74000CB367 /* ProfileViewController.swift */; };
+		CEBF69772A78EC7A000CB367 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEBF69762A78EC7A000CB367 /* Colors.xcassets */; };
 		CEBF697A2A78EC7A000CB367 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEBF69782A78EC7A000CB367 /* LaunchScreen.storyboard */; };
+		CEBF69842A78F13E000CB367 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF69832A78F13E000CB367 /* NavigationController.swift */; };
+		CEBF69882A78F36E000CB367 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF69872A78F36E000CB367 /* UIColor + Extension.swift */; };
+		CEBF698A2A78F4C4000CB367 /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF69892A78F4C4000CB367 /* UIFont + Extension.swift */; };
+		CEBF698C2A78F6F9000CB367 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF698B2A78F6F9000CB367 /* ProfileView.swift */; };
+		CEBF698E2A78F939000CB367 /* MainInformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF698D2A78F939000CB367 /* MainInformationCell.swift */; };
+		CEBF69902A7901A5000CB367 /* SkillsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF698F2A7901A5000CB367 /* SkillsCell.swift */; };
+		CEBF69932A7902B4000CB367 /* UICollectionView + Exension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF69922A7902B4000CB367 /* UICollectionView + Exension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CEBF696A2A78EC74000CB367 /* CV_TestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CV_TestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBF696D2A78EC74000CB367 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CEBF69712A78EC74000CB367 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CEBF69742A78EC74000CB367 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CEBF69762A78EC7A000CB367 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CEBF69712A78EC74000CB367 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		CEBF69762A78EC7A000CB367 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		CEBF69792A78EC7A000CB367 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEBF697B2A78EC7A000CB367 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEBF69832A78F13E000CB367 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		CEBF69872A78F36E000CB367 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
+		CEBF69892A78F4C4000CB367 /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
+		CEBF698B2A78F6F9000CB367 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		CEBF698D2A78F939000CB367 /* MainInformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInformationCell.swift; sourceTree = "<group>"; };
+		CEBF698F2A7901A5000CB367 /* SkillsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsCell.swift; sourceTree = "<group>"; };
+		CEBF69922A7902B4000CB367 /* UICollectionView + Exension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView + Exension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +67,27 @@
 			isa = PBXGroup;
 			children = (
 				CEBF696D2A78EC74000CB367 /* AppDelegate.swift */,
-				CEBF69712A78EC74000CB367 /* ViewController.swift */,
-				CEBF69732A78EC74000CB367 /* Main.storyboard */,
-				CEBF69762A78EC7A000CB367 /* Assets.xcassets */,
+				CEBF69712A78EC74000CB367 /* ProfileViewController.swift */,
+				CEBF69832A78F13E000CB367 /* NavigationController.swift */,
+				CEBF698B2A78F6F9000CB367 /* ProfileView.swift */,
+				CEBF69912A79029D000CB367 /* Extensions */,
+				CEBF698D2A78F939000CB367 /* MainInformationCell.swift */,
+				CEBF698F2A7901A5000CB367 /* SkillsCell.swift */,
+				CEBF69762A78EC7A000CB367 /* Colors.xcassets */,
 				CEBF69782A78EC7A000CB367 /* LaunchScreen.storyboard */,
 				CEBF697B2A78EC7A000CB367 /* Info.plist */,
 			);
 			path = CV_TestTask;
+			sourceTree = "<group>";
+		};
+		CEBF69912A79029D000CB367 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CEBF69892A78F4C4000CB367 /* UIFont + Extension.swift */,
+				CEBF69872A78F36E000CB367 /* UIColor + Extension.swift */,
+				CEBF69922A7902B4000CB367 /* UICollectionView + Exension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,8 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEBF697A2A78EC7A000CB367 /* LaunchScreen.storyboard in Resources */,
-				CEBF69772A78EC7A000CB367 /* Assets.xcassets in Resources */,
-				CEBF69752A78EC74000CB367 /* Main.storyboard in Resources */,
+				CEBF69772A78EC7A000CB367 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,22 +203,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEBF69722A78EC74000CB367 /* ViewController.swift in Sources */,
+				CEBF698A2A78F4C4000CB367 /* UIFont + Extension.swift in Sources */,
+				CEBF69722A78EC74000CB367 /* ProfileViewController.swift in Sources */,
+				CEBF698E2A78F939000CB367 /* MainInformationCell.swift in Sources */,
+				CEBF69882A78F36E000CB367 /* UIColor + Extension.swift in Sources */,
+				CEBF69842A78F13E000CB367 /* NavigationController.swift in Sources */,
+				CEBF69902A7901A5000CB367 /* SkillsCell.swift in Sources */,
+				CEBF698C2A78F6F9000CB367 /* ProfileView.swift in Sources */,
 				CEBF696E2A78EC74000CB367 /* AppDelegate.swift in Sources */,
+				CEBF69932A7902B4000CB367 /* UICollectionView + Exension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CEBF69732A78EC74000CB367 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CEBF69742A78EC74000CB367 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CEBF69782A78EC7A000CB367 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
