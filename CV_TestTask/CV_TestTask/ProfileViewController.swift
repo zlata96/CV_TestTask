@@ -19,11 +19,16 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         title = "Профиль"
         view = contentView
         setupDelegates()
+        setupData()
     }
 
     func setupDelegates() {
         contentView.profileCollectionView.dataSource = self
         contentView.profileCollectionView.delegate = self
+    }
+
+    func setupData() {
+        contentView.configure(user: user)
     }
 }
 
@@ -31,15 +36,15 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
 
 extension ProfileViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        3
+        2
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
-        case 0, 2:
-            return 1
-        case 1:
+        case 0:
             return skillsArray.count
+        case 1:
+            return 1
         default:
             return 0
         }
@@ -48,15 +53,10 @@ extension ProfileViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:
-            let cell = collectionView.dequeueReusableCell(withClass: MainInformationCell.self, for: indexPath)
-            cell.configure(user: user)
-            return cell
-
-        case 1:
             let cell = collectionView.dequeueReusableCell(withClass: SkillsCell.self, for: indexPath)
             cell.configuration(text: skillsArray[indexPath.row])
             return cell
-        case 2:
+        case 1:
             let cell = collectionView.dequeueReusableCell(withClass: AboutMeCell.self, for: indexPath)
             cell.configuration(text: aboutMeText)
             return cell
@@ -78,8 +78,8 @@ extension ProfileViewController: UICollectionViewDataSource {
         header.editButtonDelegate = self
 
         switch indexPath.section {
-        case 1: header.configure(title: "Мои навыки", isButtonHidden: false)
-        case 2: header.configure(title: "О себе", isButtonHidden: true)
+        case 0: header.configure(title: "Мои навыки", isButtonHidden: false)
+        case 1: header.configure(title: "О себе", isButtonHidden: true)
         default: break
         }
         return header

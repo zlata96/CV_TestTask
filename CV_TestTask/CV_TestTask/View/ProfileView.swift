@@ -7,21 +7,33 @@ import UIKit
 
 class ProfileView: UIView {
     enum ProfileViewSections {
-        case mainInfo
         case skills
         case aboutUser
     }
 
-    let sections: [ProfileViewSections] = [.mainInfo, .skills, .aboutUser]
+//    let contentView: UIView = {
+//        let view = UIView()
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        return view
+//    }()
+//
+//    let scrollView: UIScrollView = {
+//        let view = UIScrollView()
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        return view
+//    }()
+
+    let sections: [ProfileViewSections] = [.skills, .aboutUser]
+    private let mainInformationView = MainInformationView()
     lazy var profileCollectionView: UICollectionView = {
         let layout = createLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(cellWithClass: MainInformationCell.self)
         collectionView.register(cellWithClass: SkillsCell.self)
         collectionView.register(cellWithClass: AboutMeCell.self)
         collectionView.register(viewWithClass: SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader)
         collectionView.backgroundColor = .white
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+
         return collectionView
     }()
 
@@ -39,6 +51,7 @@ class ProfileView: UIView {
         setupStyle()
         addSubviews()
         makeConstraints()
+        mainInformationView.translatesAutoresizingMaskIntoConstraints = false
     }
 
     private func setupStyle() {
@@ -46,14 +59,36 @@ class ProfileView: UIView {
     }
 
     private func addSubviews() {
+//        addSubview(scrollView)
+//        scrollView.addSubview(contentView)
+        // contentView.
+        addSubview(mainInformationView)
+        // contentView.
         addSubview(profileCollectionView)
     }
 
     private func makeConstraints() {
         NSLayoutConstraint.activate([
+            //            scrollView.topAnchor.constraint(equalTo: topAnchor),
+//            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+//            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+//            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+//
+//            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+//            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+//            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+//            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+//            contentView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
+
+            mainInformationView.topAnchor.constraint(equalTo: topAnchor, constant: 120),
+            mainInformationView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            mainInformationView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            mainInformationView.heightAnchor.constraint(greaterThanOrEqualToConstant: UIScreen.main.bounds.width * 0.7),
+
             profileCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            profileCollectionView.rightAnchor.constraint(equalTo: rightAnchor),
-            profileCollectionView.topAnchor.constraint(equalTo: topAnchor),
+            profileCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            profileCollectionView.topAnchor.constraint(equalTo: mainInformationView.bottomAnchor),
+            profileCollectionView.heightAnchor.constraint(greaterThanOrEqualToConstant: 700),
             profileCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
@@ -77,12 +112,10 @@ extension ProfileView {
 
     private func layoutSection(for type: ProfileViewSections) -> NSCollectionLayoutSection {
         switch type {
-        case .mainInfo:
-            return createLayoutSingleSection(height: 700, isWithHeader: false)
         case .skills:
             return createLeftAlignedLayout()
         case .aboutUser:
-            return createLayoutSingleSection(height: 300, isWithHeader: true)
+            return createLayoutSingleSection(height: 300)
         }
     }
 
@@ -110,7 +143,7 @@ extension ProfileView {
         return section
     }
 
-    private func createLayoutSingleSection(height: CGFloat, isWithHeader: Bool) -> NSCollectionLayoutSection {
+    private func createLayoutSingleSection(height: CGFloat) -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
@@ -127,10 +160,9 @@ extension ProfileView {
         )
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 20
-        if isWithHeader {
-            let header = getHeader()
-            section.boundarySupplementaryItems = [header]
-        }
+        let header = getHeader()
+        section.boundarySupplementaryItems = [header]
+
         return section
     }
 
@@ -141,5 +173,9 @@ extension ProfileView {
                                                                  alignment: .topLeading)
         header.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 0, bottom: 0, trailing: 0)
         return header
+    }
+
+    func configure(user: UserModel) {
+        mainInformationView.configure(user: user)
     }
 }

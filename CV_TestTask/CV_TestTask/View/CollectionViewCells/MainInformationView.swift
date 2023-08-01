@@ -1,12 +1,12 @@
-// MainInformationCell.swift
+// MainInformationView.swift
 // CV_TestTask. Created by Zlata Guseva.
 
 import UIKit
 
-// MARK: - MainInformationCell
+// MARK: - MainInformationView
 
-class MainInformationCell: UICollectionViewCell {
-    lazy var photoImageView: UIImageView = {
+class MainInformationView: UIView {
+    var photoImageView: UIImageView = {
         var imageView = UIImageView()
         imageView.contentMode = .scaleToFill
         imageView.layer.cornerRadius = imageView.frame.height / 2
@@ -63,7 +63,7 @@ class MainInformationCell: UICollectionViewCell {
         photoImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         photoImageView.widthAnchor.constraint(equalToConstant: 120).isActive = true
         photoImageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
-        photoImageView.topAnchor.constraint(equalTo: topAnchor, constant: 24).isActive = true
+        photoImageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
 
         nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         nameLabel.topAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: 16).isActive = true
@@ -75,8 +75,9 @@ class MainInformationCell: UICollectionViewCell {
         descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
         descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
 
-        locationView.centerXAnchor.constraint(equalTo: descriptionLabel.centerXAnchor).isActive = true
+        locationView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         locationView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 4).isActive = true
+        locationView.heightAnchor.constraint(equalToConstant: 20).isActive = true
         // TODO:
 //        locationView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
 //        locationView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
@@ -85,7 +86,7 @@ class MainInformationCell: UICollectionViewCell {
 
 // MARK: Configure
 
-extension MainInformationCell {
+extension MainInformationView {
     func configure(user: UserModel) {
         photoImageView.image = user.photo
         nameLabel.text = user.name

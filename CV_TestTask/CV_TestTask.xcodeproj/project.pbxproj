@@ -15,7 +15,7 @@
 		CEBF69882A78F36E000CB367 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF69872A78F36E000CB367 /* UIColor + Extension.swift */; };
 		CEBF698A2A78F4C4000CB367 /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF69892A78F4C4000CB367 /* UIFont + Extension.swift */; };
 		CEBF698C2A78F6F9000CB367 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF698B2A78F6F9000CB367 /* ProfileView.swift */; };
-		CEBF698E2A78F939000CB367 /* MainInformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF698D2A78F939000CB367 /* MainInformationCell.swift */; };
+		CEBF698E2A78F939000CB367 /* MainInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF698D2A78F939000CB367 /* MainInformationView.swift */; };
 		CEBF69902A7901A5000CB367 /* SkillsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF698F2A7901A5000CB367 /* SkillsCell.swift */; };
 		CEBF69932A7902B4000CB367 /* UICollectionView + Exension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF69922A7902B4000CB367 /* UICollectionView + Exension.swift */; };
 		CED72EC42A790E1300B76303 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CED72EC32A790E1300B76303 /* Images.xcassets */; };
@@ -36,7 +36,7 @@
 		CEBF69872A78F36E000CB367 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		CEBF69892A78F4C4000CB367 /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
 		CEBF698B2A78F6F9000CB367 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		CEBF698D2A78F939000CB367 /* MainInformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInformationCell.swift; sourceTree = "<group>"; };
+		CEBF698D2A78F939000CB367 /* MainInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInformationView.swift; sourceTree = "<group>"; };
 		CEBF698F2A7901A5000CB367 /* SkillsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsCell.swift; sourceTree = "<group>"; };
 		CEBF69922A7902B4000CB367 /* UICollectionView + Exension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView + Exension.swift"; sourceTree = "<group>"; };
 		CED72EC32A790E1300B76303 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 		CED72EC22A790DDB00B76303 /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				CEBF698D2A78F939000CB367 /* MainInformationCell.swift */,
+				CEBF698D2A78F939000CB367 /* MainInformationView.swift */,
 				CEBF698F2A7901A5000CB367 /* SkillsCell.swift */,
 				CED72ECA2A79251A00B76303 /* AboutMeCell.swift */,
 			);
@@ -246,7 +246,7 @@
 				CEBF698A2A78F4C4000CB367 /* UIFont + Extension.swift in Sources */,
 				CED72ECB2A79251A00B76303 /* AboutMeCell.swift in Sources */,
 				CEBF69722A78EC74000CB367 /* ProfileViewController.swift in Sources */,
-				CEBF698E2A78F939000CB367 /* MainInformationCell.swift in Sources */,
+				CEBF698E2A78F939000CB367 /* MainInformationView.swift in Sources */,
 				CEBF69882A78F36E000CB367 /* UIColor + Extension.swift in Sources */,
 				CEBF69842A78F13E000CB367 /* NavigationController.swift in Sources */,
 				CEBF69902A7901A5000CB367 /* SkillsCell.swift in Sources */,

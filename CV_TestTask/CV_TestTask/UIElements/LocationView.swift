@@ -12,8 +12,6 @@ class LocationView: UIView {
         imageView.image = UIImage(named: "locationIcon") ?? UIImage()
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.widthAnchor.constraint(equalToConstant: 16).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 16).isActive = true
         return imageView
     }()
 
@@ -22,19 +20,9 @@ class LocationView: UIView {
         label.font = .text1R
         label.textColor = .subTitle
         label.numberOfLines = 1
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-    }()
-
-    lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.addArrangedSubview(locationImageView)
-        stackView.addArrangedSubview(cityNameLabel)
-        stackView.distribution = .fill
-        stackView.axis = .horizontal
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.spacing = 2
-        return stackView
     }()
 
     override init(frame: CGRect) {
@@ -55,22 +43,25 @@ class LocationView: UIView {
     }
 
     private func addSubviews() {
-        addSubview(stackView)
+        addSubview(cityNameLabel)
+        addSubview(locationImageView)
     }
 
     private func makeConstraints() {
-        stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        cityNameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+//        cityNameLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
 
-//        locationImageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-//        locationImageView.heightAnchor.constraint(equalToConstant: 16).isActive = true
-//        locationImageView.widthAnchor.constraint(equalToConstant: 16).isActive = true
-//
+//        cityNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+
 //        cityNameLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
-//        cityNameLabel.leadingAnchor.constraint(equalTo: locationImageView.trailingAnchor).isActive = true
+//        cityNameLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+//        cityNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
 //        cityNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+
+        locationImageView.trailingAnchor.constraint(equalTo: cityNameLabel.leadingAnchor, constant: -4).isActive = true
+        locationImageView.heightAnchor.constraint(equalToConstant: 16).isActive = true
+        locationImageView.widthAnchor.constraint(equalToConstant: 16).isActive = true
+        locationImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
 }
 
