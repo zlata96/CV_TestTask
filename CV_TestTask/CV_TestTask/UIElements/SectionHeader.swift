@@ -6,7 +6,7 @@ import UIKit
 // MARK: - EditButtonDelegate
 
 protocol EditButtonDelegate: AnyObject {
-    func editButtonPressed()
+    func editButtonPressed(currentState: SectionHeader.HeaderState)
 }
 
 // MARK: - SectionHeader
@@ -96,7 +96,12 @@ class SectionHeader: UICollectionReusableView {
 
     @objc
     func editButtonPressed() {
-        editButtonDelegate?.editButtonPressed()
+        editButtonDelegate?.editButtonPressed(currentState: headerState)
+        if headerState == .standard {
+            headerState = .editing
+        } else {
+            headerState = .standard
+        }
     }
 
     func configure(title: String, isButtonHidden: Bool) {

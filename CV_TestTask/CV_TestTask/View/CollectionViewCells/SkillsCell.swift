@@ -11,9 +11,9 @@ class SkillsCell: UICollectionViewCell {
         case regular
     }
 
-    var cellState: SkillsState = .editing {
+    var cellState: SkillsState = .regular {
         didSet {
-            addSubviews()
+            changeSubviews()
             makeConstraints()
         }
     }
@@ -66,11 +66,11 @@ class SkillsCell: UICollectionViewCell {
     }
 
     private func makeConstraints() {
+        skillNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        skillNameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        skillNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
         switch cellState {
         case .editing:
-            skillNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-            skillNameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-            skillNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
             skillNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -48).isActive = true
 
             deleteImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
@@ -80,23 +80,17 @@ class SkillsCell: UICollectionViewCell {
             deleteImageView.widthAnchor.constraint(equalToConstant: 14).isActive = true
 
         case .regular:
-            skillNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-            skillNameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-            skillNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
             skillNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24).isActive = true
         }
+    }
 
-//        skillNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-//        skillNameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-//        skillNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24).isActive = true
-//        skillNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24).isActive = false
-//
-//        deleteButton.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-//        deleteButton.topAnchor.constraint(equalTo: topAnchor).isActive = true
-//        deleteButton.leadingAnchor.constraint(equalTo: skillNameLabel.trailingAnchor).isActive = true
-
-//        skillNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive = true
-//        skillNameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12).isActive = true
+    private func changeSubviews() {
+        switch cellState {
+        case .editing:
+            addSubview(deleteImageView)
+        case .regular:
+            deleteImageView.removeFromSuperview()
+        }
     }
 }
 

@@ -9,9 +9,13 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     // swiftlint:disable all
     let contentView = ProfileView()
     var skillsArray = [String]()
-    let user = UserModel(name: "Иванов Иван \nИванович",
-                         description: "Middle iOS-разработчик, опыт более 2-х лет",
-                         city: "Воронеж")
+
+    let user = UserModel(
+        name: "Иванов Иван \nИванович",
+        description: "Middle iOS-разработчик, опыт более 2-х лет",
+        city: "Воронеж"
+    )
+
     let aboutMeText = "Experienced software engineer skilled in developing scalable and maintainable systemsExperienced software engineer skilled in developing scalable and maintainable systemsExperienced software engineer skilled in developing scalable and maintainable systemsExperienced software engineer skilled in developing scalable and maintainable systems"
     // swiftlint:enable all
     override func viewDidLoad() {
@@ -103,24 +107,29 @@ extension ProfileViewController: UICollectionViewDataSource {
 // MARK: EditButtonDelegate
 
 extension ProfileViewController: EditButtonDelegate {
-    func editButtonPressed() {
-        let index = skillsArray.count - 1
-        let indexPath = IndexPath(row: 0, section: 1)
-        if let headerView = contentView.profileCollectionView.supplementaryView(forElementKind: UICollectionView.elementKindSectionHeader, at: indexPath) as? SectionHeader {
-            if headerView.headerState == .standard {
-                headerView.headerState = .editing
-                if skillsArray[index] != "+" {
-                    skillsArray.append("+")
-                }
-            } else {
-                headerView.headerState = .standard
-                if skillsArray[index] == "+" {
-                    skillsArray.remove(at: index)
-                }
-                saveDataToUserDefaults()
+    func editButtonPressed(currentState: SectionHeader.HeaderState) {
+        if currentState == .standard {
+            skillsArray.append("+")
+            changeCellsState(state: .editing)
+            contentView.profileCollectionView.insertItems(at: [IndexPath(row: skillsArray.count - 1, section: 0)])
+        } else {
+            skillsArray.removeLast()
+            contentView.profileCollectionView.deleteItems(at: [IndexPath(row: skillsArray.count, section: 0)])
+            changeCellsState(state: .regular)
+            saveDataToUserDefaults()
+        }
+    }
+
+    func changeCellsState(state: SkillsCell.SkillsState) {
+        for index in 0 ... skillsArray.count - 1 {
+            let indexPath = IndexPath(row: index, section: 0)
+            let cell = contentView.profileCollectionView.cellForItem(at: indexPath) as? SkillsCell
+            cell?.cellState = state
+
+            if skillsArray[indexPath.row] == "+" {
+                cell?.cellState = .regular
             }
         }
-        contentView.profileCollectionView.reloadData()
     }
 }
 
@@ -134,7 +143,8 @@ extension ProfileViewController: UICollectionViewDelegate {
                 presentAlert()
             } else {
                 skillsArray.remove(at: indexPath.row)
-                contentView.profileCollectionView.reloadData()
+                // changeCellsState(state: .editing)
+                contentView.profileCollectionView.deleteItems(at: [indexPath])
             }
         } else {
             return
@@ -166,7 +176,7 @@ extension ProfileViewController: UICollectionViewDelegate {
         let cancel = UIAlertAction(
             title: "Отмена",
             style: UIAlertAction.Style.default,
-            handler: { (action: UIAlertAction!) in
+            handler: { _ in
                 alert.dismiss(animated: true)
             }
         )
