@@ -79,9 +79,6 @@ class MainInformationView: UIView {
         locationView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         locationView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 4).isActive = true
         locationView.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        // TODO:
-//        locationView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
-//        locationView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
     }
 }
 

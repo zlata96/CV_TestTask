@@ -1,11 +1,11 @@
-// SkillsCell.swift
+// SkillCell.swift
 // CV_TestTask. Created by Zlata Guseva.
 
 import UIKit
 
-// MARK: - SkillsCell
+// MARK: - SkillCell
 
-class SkillsCell: UICollectionViewCell {
+class SkillCell: UICollectionViewCell {
     enum SkillsState {
         case editing
         case regular
@@ -96,7 +96,7 @@ class SkillsCell: UICollectionViewCell {
 
 // MARK: Configure
 
-extension SkillsCell {
+extension SkillCell {
     func configuration(text: String) {
         skillNameLabel.text = text
     }

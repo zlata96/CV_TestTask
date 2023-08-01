@@ -45,7 +45,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         if let loadedArray = UserDefaults.standard.array(forKey: "UserSkills") as? [String] {
             skillsArray = loadedArray
         } else {
-            skillsArray = ["MVVM", "WorkManager", "Room", "OOP and SOLID", "dsfahgelwfgalfrghalerhf", "dsfahgelwfgalfrghalerhfdsfahgelwfgalfrghalerhf"]
+            skillsArray = ["MVVM", "WorkManager", "Room", "OOP and SOLID"]
         }
     }
 }
@@ -71,7 +71,7 @@ extension ProfileViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:
-            let cell = collectionView.dequeueReusableCell(withClass: SkillsCell.self, for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withClass: SkillCell.self, for: indexPath)
             cell.configuration(text: skillsArray[indexPath.row])
             return cell
         case 1:
@@ -109,8 +109,8 @@ extension ProfileViewController: UICollectionViewDataSource {
 extension ProfileViewController: EditButtonDelegate {
     func editButtonPressed(currentState: SectionHeader.HeaderState) {
         if currentState == .standard {
-            skillsArray.append("+")
             changeCellsState(state: .editing)
+            skillsArray.append("+")
             contentView.profileCollectionView.insertItems(at: [IndexPath(row: skillsArray.count - 1, section: 0)])
         } else {
             skillsArray.removeLast()
@@ -120,16 +120,22 @@ extension ProfileViewController: EditButtonDelegate {
         }
     }
 
-    func changeCellsState(state: SkillsCell.SkillsState) {
+    func changeCellsState(state: SkillCell.SkillsState) {
         for index in 0 ... skillsArray.count - 1 {
             let indexPath = IndexPath(row: index, section: 0)
-            let cell = contentView.profileCollectionView.cellForItem(at: indexPath) as? SkillsCell
+            let cell = contentView.profileCollectionView.cellForItem(at: indexPath) as? SkillCell
             cell?.cellState = state
-
-            if skillsArray[indexPath.row] == "+" {
-                cell?.cellState = .regular
-            }
         }
+    }
+
+    func addItem(with text: String) {
+        skillsArray.insert(text, at: skillsArray.count - 1)
+
+        let indexPath = IndexPath(row: skillsArray.count - 2, section: 0)
+        contentView.profileCollectionView.insertItems(at: [indexPath])
+
+        let cell = contentView.profileCollectionView.cellForItem(at: indexPath) as? SkillCell
+        cell?.cellState = .editing
     }
 }
 
@@ -143,7 +149,6 @@ extension ProfileViewController: UICollectionViewDelegate {
                 presentAlert()
             } else {
                 skillsArray.remove(at: indexPath.row)
-                // changeCellsState(state: .editing)
                 contentView.profileCollectionView.deleteItems(at: [indexPath])
             }
         } else {
@@ -167,9 +172,7 @@ extension ProfileViewController: UICollectionViewDelegate {
             style: UIAlertAction.Style.default,
             handler: { [weak self] _ in
                 let textField = alert.textFields![0] as UITextField
-                self?.skillsArray.insert(textField.text ?? "", at: (self?.skillsArray.count ?? 1) - 1)
-                self?.contentView.profileCollectionView.reloadData()
-                self?.saveDataToUserDefaults()
+                self?.addItem(with: textField.text ?? "")
             }
         )
 

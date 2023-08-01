@@ -48,16 +48,8 @@ class LocationView: UIView {
     }
 
     private func makeConstraints() {
+        cityNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         cityNameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-//        cityNameLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-
-//        cityNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-
-//        cityNameLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
-//        cityNameLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-//        cityNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-//        cityNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-
         locationImageView.trailingAnchor.constraint(equalTo: cityNameLabel.leadingAnchor, constant: -4).isActive = true
         locationImageView.heightAnchor.constraint(equalToConstant: 16).isActive = true
         locationImageView.widthAnchor.constraint(equalToConstant: 16).isActive = true

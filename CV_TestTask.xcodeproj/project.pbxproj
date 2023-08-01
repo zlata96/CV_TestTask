@@ -16,7 +16,7 @@
 		CEBF698A2A78F4C4000CB367 /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF69892A78F4C4000CB367 /* UIFont + Extension.swift */; };
 		CEBF698C2A78F6F9000CB367 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF698B2A78F6F9000CB367 /* ProfileView.swift */; };
 		CEBF698E2A78F939000CB367 /* MainInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF698D2A78F939000CB367 /* MainInformationView.swift */; };
-		CEBF69902A7901A5000CB367 /* SkillsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF698F2A7901A5000CB367 /* SkillsCell.swift */; };
+		CEBF69902A7901A5000CB367 /* SkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF698F2A7901A5000CB367 /* SkillCell.swift */; };
 		CEBF69932A7902B4000CB367 /* UICollectionView + Exension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF69922A7902B4000CB367 /* UICollectionView + Exension.swift */; };
 		CED72EC42A790E1300B76303 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CED72EC32A790E1300B76303 /* Images.xcassets */; };
 		CED72EC72A790E4900B76303 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED72EC62A790E4900B76303 /* LocationView.swift */; };
@@ -37,7 +37,7 @@
 		CEBF69892A78F4C4000CB367 /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
 		CEBF698B2A78F6F9000CB367 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		CEBF698D2A78F939000CB367 /* MainInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInformationView.swift; sourceTree = "<group>"; };
-		CEBF698F2A7901A5000CB367 /* SkillsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsCell.swift; sourceTree = "<group>"; };
+		CEBF698F2A7901A5000CB367 /* SkillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillCell.swift; sourceTree = "<group>"; };
 		CEBF69922A7902B4000CB367 /* UICollectionView + Exension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView + Exension.swift"; sourceTree = "<group>"; };
 		CED72EC32A790E1300B76303 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CED72EC62A790E4900B76303 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
@@ -76,16 +76,14 @@
 		CEBF696C2A78EC74000CB367 /* CV_TestTask */ = {
 			isa = PBXGroup;
 			children = (
-				CEBF696D2A78EC74000CB367 /* AppDelegate.swift */,
-				CEBF69712A78EC74000CB367 /* ProfileViewController.swift */,
-				CEBF69832A78F13E000CB367 /* NavigationController.swift */,
-				CED72EC82A79118700B76303 /* UserModel.swift */,
-				CED72EC52A790E2E00B76303 /* UIElements */,
-				CED72EC12A790DAA00B76303 /* View */,
+				CED72EC12A790DAA00B76303 /* Views */,
+				CED72ECF2A79B41300B76303 /* Controllers */,
+				CED72ECE2A79B40F00B76303 /* Model */,
 				CEBF69912A79029D000CB367 /* Extensions */,
 				CEBF69762A78EC7A000CB367 /* Colors.xcassets */,
 				CED72EC32A790E1300B76303 /* Images.xcassets */,
 				CEBF69782A78EC7A000CB367 /* LaunchScreen.storyboard */,
+				CEBF696D2A78EC74000CB367 /* AppDelegate.swift */,
 				CEBF697B2A78EC7A000CB367 /* Info.plist */,
 			);
 			path = CV_TestTask;
@@ -101,32 +99,42 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		CED72EC12A790DAA00B76303 /* View */ = {
+		CED72EC12A790DAA00B76303 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				CEBF698B2A78F6F9000CB367 /* ProfileView.swift */,
-				CED72EC22A790DDB00B76303 /* CollectionViewCells */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		CED72EC22A790DDB00B76303 /* CollectionViewCells */ = {
-			isa = PBXGroup;
-			children = (
 				CEBF698D2A78F939000CB367 /* MainInformationView.swift */,
-				CEBF698F2A7901A5000CB367 /* SkillsCell.swift */,
-				CED72ECA2A79251A00B76303 /* AboutMeCell.swift */,
-			);
-			path = CollectionViewCells;
-			sourceTree = "<group>";
-		};
-		CED72EC52A790E2E00B76303 /* UIElements */ = {
-			isa = PBXGroup;
-			children = (
 				CED72EC62A790E4900B76303 /* LocationView.swift */,
 				CED72ECC2A79353A00B76303 /* SectionHeader.swift */,
+				CED72EC22A790DDB00B76303 /* Cells */,
 			);
-			path = UIElements;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CED72EC22A790DDB00B76303 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CEBF698F2A7901A5000CB367 /* SkillCell.swift */,
+				CED72ECA2A79251A00B76303 /* AboutMeCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		CED72ECE2A79B40F00B76303 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CED72EC82A79118700B76303 /* UserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CED72ECF2A79B41300B76303 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CEBF69712A78EC74000CB367 /* ProfileViewController.swift */,
+				CEBF69832A78F13E000CB367 /* NavigationController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,7 +257,7 @@
 				CEBF698E2A78F939000CB367 /* MainInformationView.swift in Sources */,
 				CEBF69882A78F36E000CB367 /* UIColor + Extension.swift in Sources */,
 				CEBF69842A78F13E000CB367 /* NavigationController.swift in Sources */,
-				CEBF69902A7901A5000CB367 /* SkillsCell.swift in Sources */,
+				CEBF69902A7901A5000CB367 /* SkillCell.swift in Sources */,
 				CEBF698C2A78F6F9000CB367 /* ProfileView.swift in Sources */,
 				CED72EC72A790E4900B76303 /* LocationView.swift in Sources */,
 				CEBF696E2A78EC74000CB367 /* AppDelegate.swift in Sources */,

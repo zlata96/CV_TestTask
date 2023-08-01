@@ -11,24 +11,12 @@ class ProfileView: UIView {
         case aboutUser
     }
 
-//    let contentView: UIView = {
-//        let view = UIView()
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        return view
-//    }()
-//
-//    let scrollView: UIScrollView = {
-//        let view = UIScrollView()
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        return view
-//    }()
-
     let sections: [ProfileViewSections] = [.skills, .aboutUser]
     private let mainInformationView = MainInformationView()
     lazy var profileCollectionView: UICollectionView = {
         let layout = createLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(cellWithClass: SkillsCell.self)
+        collectionView.register(cellWithClass: SkillCell.self)
         collectionView.register(cellWithClass: AboutMeCell.self)
         collectionView.register(viewWithClass: SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader)
         collectionView.backgroundColor = .white
@@ -58,27 +46,12 @@ class ProfileView: UIView {
     }
 
     private func addSubviews() {
-//        addSubview(scrollView)
-//        scrollView.addSubview(contentView)
-        // contentView.
         addSubview(mainInformationView)
-        // contentView.
         addSubview(profileCollectionView)
     }
 
     private func makeConstraints() {
         NSLayoutConstraint.activate([
-            //            scrollView.topAnchor.constraint(equalTo: topAnchor),
-//            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
-//            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
-//
-//            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-//            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-//            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-//            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-//            contentView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
-
             mainInformationView.topAnchor.constraint(equalTo: topAnchor, constant: 120),
             mainInformationView.leadingAnchor.constraint(equalTo: leadingAnchor),
             mainInformationView.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -119,22 +92,22 @@ extension ProfileView {
     }
 
     private func createLeftAlignedLayout() -> NSCollectionLayoutSection {
-        let item = NSCollectionLayoutItem( // this is your cell
+        let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
-                widthDimension: .estimated(64), // variable width
-                heightDimension: .absolute(44) // fixed height
+                widthDimension: .estimated(64),
+                heightDimension: .absolute(44)
             )
         )
 
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: .init(
-                widthDimension: .fractionalWidth(1.0), // 100% width as inset by its Section
-                heightDimension: .estimated(56) // variable height; allows for multiple rows of items
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .estimated(56)
             ),
             subitems: [item]
         )
         group.contentInsets = .init(top: 0, leading: 16, bottom: 0, trailing: 16)
-        group.interItemSpacing = .fixed(12) // horizontal spacing between cells
+        group.interItemSpacing = .fixed(12)
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 12
         let header = getHeader()
@@ -167,9 +140,11 @@ extension ProfileView {
 
     private func getHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(60))
-        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
-                                                                 elementKind: UICollectionView.elementKindSectionHeader,
-                                                                 alignment: .topLeading)
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .topLeading
+        )
         header.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 0, bottom: 0, trailing: 0)
         return header
     }
