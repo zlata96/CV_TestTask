@@ -8,8 +8,8 @@ import UIKit
 class ProfileViewController: UIViewController, UITextFieldDelegate {
     // swiftlint:disable all
     let contentView = ProfileView()
-    var skillsArray = ["MVVM", "WorkManager", "Room", "OOP and SOLID", "dsfahgelwfgalfrghalerhf", "dsfahgelwfgalfrghalerhfdsfahgelwfgalfrghalerhf"]
-    let user = UserModel(name: "Ivanov Ivan \nIvanovich",
+    var skillsArray = [String]()
+    let user = UserModel(name: "Иванов Иван \nИванович",
                          description: "Middle iOS-разработчик, опыт более 2-х лет",
                          city: "Воронеж")
     let aboutMeText = "Experienced software engineer skilled in developing scalable and maintainable systemsExperienced software engineer skilled in developing scalable and maintainable systemsExperienced software engineer skilled in developing scalable and maintainable systemsExperienced software engineer skilled in developing scalable and maintainable systems"
@@ -29,6 +29,20 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
 
     func setupData() {
         contentView.configure(user: user)
+        getDataFromUserDefaults()
+    }
+
+    func saveDataToUserDefaults() {
+        let arrayToSave = skillsArray
+        UserDefaults.standard.set(arrayToSave, forKey: "UserSkills")
+    }
+
+    func getDataFromUserDefaults() {
+        if let loadedArray = UserDefaults.standard.array(forKey: "UserSkills") as? [String] {
+            skillsArray = loadedArray
+        } else {
+            skillsArray = ["MVVM", "WorkManager", "Room", "OOP and SOLID", "dsfahgelwfgalfrghalerhf", "dsfahgelwfgalfrghalerhfdsfahgelwfgalfrghalerhf"]
+        }
     }
 }
 
@@ -103,6 +117,7 @@ extension ProfileViewController: EditButtonDelegate {
                 if skillsArray[index] == "+" {
                     skillsArray.remove(at: index)
                 }
+                saveDataToUserDefaults()
             }
         }
         contentView.profileCollectionView.reloadData()
@@ -144,6 +159,7 @@ extension ProfileViewController: UICollectionViewDelegate {
                 let textField = alert.textFields![0] as UITextField
                 self?.skillsArray.insert(textField.text ?? "", at: (self?.skillsArray.count ?? 1) - 1)
                 self?.contentView.profileCollectionView.reloadData()
+                self?.saveDataToUserDefaults()
             }
         )
 
